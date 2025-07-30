@@ -1,20 +1,29 @@
-let count = 0;
+document.addEventListener("DOMContentLoaded", () => {
+  let count = 0;
 
-function updateDisplay() {
-  document.getElementById("count").textContent = count;
-}
+  const countDisplay = document.getElementById("count");
+  const increaseBtn = document.getElementById("increase");
+  const decreaseBtn = document.getElementById("decrease");
+  const resetBtn = document.getElementById("reset");
 
-function increase() {
-  count++;
-  updateDisplay();
-}
+  function updateDisplay() {
+    countDisplay.textContent = count;
+  }
 
-function decrease() {
-  count--;
-  updateDisplay();
-}
+  increaseBtn.addEventListener("click", () => {
+    count++;
+    updateDisplay();
+  });
 
-function reset() {
-  count = 0;
-  updateDisplay();
-}
+  decreaseBtn.addEventListener("click", () => {
+    count--;
+    updateDisplay();
+  });
+
+  resetBtn.addEventListener("click", () => {
+    count = 0;
+    updateDisplay();
+  });
+
+  updateDisplay(); // initialize display
+});
